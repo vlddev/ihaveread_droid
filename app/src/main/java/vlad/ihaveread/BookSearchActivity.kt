@@ -36,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import vlad.ihaveread.ui.theme.IhavereadTheme
+import java.time.Year
 
 class BookSearchActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,7 +63,7 @@ class BookSearchActivity : ComponentActivity() {
 @Composable
 fun SearchCard(activity: BookSearchActivity, searchType: Int) {
     var internSearchType by remember { mutableStateOf(searchType) }
-    var searchText by remember { mutableStateOf(if(internSearchType == SEARCH_TYPE_BY_DATE) "2023" else "") }
+    var searchText by remember { mutableStateOf(if(internSearchType == SEARCH_TYPE_BY_DATE) ""+Year.now().value else "") }
     var books by remember { mutableStateOf(mutableListOf<BookRead>()) }
 
     Column(
@@ -129,6 +130,16 @@ fun BookCard(book: BookRead, onClick: (book: BookRead) -> Unit) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(text = book.score.toString(), style = MaterialTheme.typography.bodySmall)
+            }
+            Spacer(modifier = Modifier.width(5.dp))
+            Column() {
+                Text(
+                    text = convDate(book.dateRead),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.Gray
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(text = book.publishDate, style = MaterialTheme.typography.bodySmall)
             }
             Spacer(modifier = Modifier.width(5.dp))
             Column() {

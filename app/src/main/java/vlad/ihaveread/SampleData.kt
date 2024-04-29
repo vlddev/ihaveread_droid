@@ -10,19 +10,19 @@ class SampleData {
         Book("Boooook 3", "Author 2"),
     )
 
-    val bookRead1 = BookRead( 1, "2023-01-ß1", "en",
+    val bookRead1 = BookRead( 1, "2023-01-01", "en",
         "2000", "ebook", 6,
         "Book 1", "Author 1", "genre", "book note")
 
     val booksReadSample : List<BookRead> = listOf(
         bookRead1,
-        BookRead( 1, "2023-01-ß2", "de",
+        BookRead( 1, "2023-01-02", "de",
             "2002", "ebook", 6,
             "Book 2", "Author 1", "genre", "book note"),
-        BookRead( 1, "2023-01-ß3", "uk",
+        BookRead( 1, "2023-01-03", "uk",
             "2003", "ebook", 8,
             "Book 3", "Author 1", "genre", "book note"),
-        BookRead( 1, "2023-01-ß1", "en",
+        BookRead( 1, "2023-01-01", "en",
             "2000", "ebook", 6,
             "Booooook 1", "Author 2", "genre", "book note"),
     )

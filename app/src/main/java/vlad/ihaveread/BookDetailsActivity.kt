@@ -71,7 +71,7 @@ fun BookDetailsCard(book: BookRead) {
             Text(text = book.note)
             Spacer(modifier = Modifier.height(4.dp))
             Text(text = "Read on", fontSize = labelFontSize, color = labelColor)
-            Text(text = book.dateRead)
+            Text(text = convDate(book.dateRead))
             Spacer(modifier = Modifier.height(4.dp))
             Text(text = "Language", fontSize = labelFontSize, color = labelColor)
             Text(text = book.langRead)
