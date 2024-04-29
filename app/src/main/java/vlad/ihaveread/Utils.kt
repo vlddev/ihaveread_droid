@@ -11,7 +11,7 @@ class Utils {
  * to DD.MM.YYYY
  */
 fun convDate(dateStr: String): String {
-    var formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
-    var date = LocalDate.parse(dateStr)
+    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+    val date = LocalDate.parse(dateStr)
     return date.format(formatter)
 }

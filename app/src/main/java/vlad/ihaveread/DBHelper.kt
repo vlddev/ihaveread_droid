@@ -137,7 +137,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         val db = this.readableDatabase
 
-        val cursor = db.rawQuery(sql, arrayOf("$id" ))
+        val cursor = db.rawQuery(sql, arrayOf(id))
         var ret: BookRead? = null
         if (cursor.moveToNext()) {
             ret = readBook(cursor)

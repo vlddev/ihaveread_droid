@@ -62,7 +62,7 @@ class BookSearchActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchCard(activity: BookSearchActivity, searchType: Int) {
-    var internSearchType by remember { mutableStateOf(searchType) }
+    val internSearchType by remember { mutableStateOf(searchType) }
     var searchText by remember { mutableStateOf(if(internSearchType == SEARCH_TYPE_BY_DATE) ""+Year.now().value else "") }
     var books by remember { mutableStateOf(mutableListOf<BookRead>()) }
 

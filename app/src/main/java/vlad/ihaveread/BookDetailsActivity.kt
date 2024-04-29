@@ -28,9 +28,7 @@ class BookDetailsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val bookId = this.intent.getIntExtra(BOOK_READ_ID, -1)
         var bookRead = SampleData().bookRead1
-        if (bookId != null) {
-            bookRead = DBHelper(this, null).getBookReadById(bookId.toString())!!
-        }
+        bookRead = DBHelper(this, null).getBookReadById(bookId.toString())!!
         setContent {
             IhavereadTheme {
                 // A surface container using the 'background' color from the theme
