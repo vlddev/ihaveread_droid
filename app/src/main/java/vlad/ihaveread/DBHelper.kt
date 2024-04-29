@@ -153,6 +153,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         while (cursor.moveToNext()) {
             builder.append(cursor.getString(0)).append("; ")
         }
+        cursor.close()
         return builder.toString()
     }
 
@@ -173,16 +174,17 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             for (i in 0 until cursor.columnCount) {
                 builder.append(cursor.getString(i)).append(" | ")
             }
-            Log.d(LOG_TAG, "${builder.toString()}")
+            Log.d(LOG_TAG, builder.toString())
         }
+        cursor.close()
     }
 
     companion object{
         val LOG_TAG = DBHelper::class.java.simpleName
         // database name
-        val DATABASE_NAME = "ihaveread.db"
+        const val DATABASE_NAME = "ihaveread.db"
 
         // database version
-        val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 1
     }
 }

@@ -26,7 +26,7 @@ class DBCopier(private val ctx: Context) {
 
     @Throws(IOException::class)
     private fun copyDbFromAssets(assetDbName: String, destDbFile: File): Boolean {
-        var ret = true
+        var ret: Boolean
         try {
             ctx.assets.open(assetDbName)
                 .use { inputStream -> ret = copyFile(inputStream, destDbFile) }

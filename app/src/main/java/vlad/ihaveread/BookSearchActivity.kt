@@ -82,19 +82,19 @@ fun SearchCard(activity: BookSearchActivity, searchType: Int) {
                             books = DBHelper(
                                 activity,
                                 null
-                            ).getBooksByYear(searchText) as MutableList<BookRead>
+                            ).getBooksByYear(searchText.trim()) as MutableList<BookRead>
                         }
                         SEARCH_TYPE_BY_AUTHOR -> {
                             books = DBHelper(
                                 activity,
                                 null
-                            ).getBooksByAuthor(searchText) as MutableList<BookRead>
+                            ).getBooksByAuthor(searchText.trim()) as MutableList<BookRead>
                         }
                         SEARCH_TYPE_BY_TITLE -> {
                             books = DBHelper(
                                 activity,
                                 null
-                            ).getBooksByTitle(searchText) as MutableList<BookRead>
+                            ).getBooksByTitle(searchText.trim()) as MutableList<BookRead>
                         }
                     }
                 })
