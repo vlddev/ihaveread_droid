@@ -26,7 +26,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             br.lang_read, b.publish_date, br.medium, br.score, 
             (select group_concat(a.name, '; ') from author a, author_book ab where ab.book_id = b.id and ab.author_id = a.id) authors,
             ifnull((select bn.name from book_names bn where bn.book_id = b.id and bn.lang = br.lang_read), b.title) title,
-            b.genre, b.note
+            (select group_concat(t.name_uk, '; ') from tag t, book_tag bt where t.id = bt.tag_id and bt.book_id = b.id) genre,
+            b.note
         from book_readed br, book b, author_book ab, author a 
         where 
         br.book_id = b.id
@@ -55,7 +56,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             br.lang_read, b.publish_date, br.medium, br.score, 
             (select group_concat(a.name, '; ') from author a, author_book ab where ab.book_id = b.id and ab.author_id = a.id) authors,
             ifnull((select bn.name from book_names bn where bn.book_id = b.id and bn.lang = br.lang_read), b.title) title,
-            b.genre, b.note
+            (select group_concat(t.name_uk, '; ') from tag t, book_tag bt where t.id = bt.tag_id and bt.book_id = b.id) genre,
+            b.note
         from book_readed br, book b, author_book ab, author a 
         where 
         br.book_id = b.id
@@ -84,7 +86,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             br.lang_read, b.publish_date, br.medium, br.score, 
             (select group_concat(a.name, '; ') from author a, author_book ab where ab.book_id = b.id and ab.author_id = a.id) authors,
             ifnull((select bn.name from book_names bn where bn.book_id = b.id and bn.lang = br.lang_read), b.title) title,
-            b.genre, b.note
+            (select group_concat(t.name_uk, '; ') from tag t, book_tag bt where t.id = bt.tag_id and bt.book_id = b.id) genre,
+            b.note
         from book_readed br, book b, author_book ab, author a 
         where 
         br.book_id = b.id
@@ -127,7 +130,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
             br.lang_read, b.publish_date, br.medium, br.score, 
             (select group_concat(a.name, '; ') from author a, author_book ab where ab.book_id = b.id and ab.author_id = a.id) authors,
             ifnull((select bn.name from book_names bn where bn.book_id = b.id and bn.lang = br.lang_read), b.title) title,
-            b.genre, b.note
+            (select group_concat(t.name_uk, '; ') from tag t, book_tag bt where t.id = bt.tag_id and bt.book_id = b.id) genre,
+            b.note
         from book_readed br, book b, author_book ab, author a 
         where 
         br.book_id = b.id
