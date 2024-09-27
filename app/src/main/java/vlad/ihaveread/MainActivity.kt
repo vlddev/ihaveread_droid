@@ -1,6 +1,7 @@
 package vlad.ihaveread
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,6 +47,13 @@ class MainActivity : ComponentActivity() {
             putExtra(SEARCH_TYPE, searchType)
         })
     }
+
+    fun downloadDb() {
+        AsyncTask.execute {
+            DBCopier(this).copyDbFromUrl("https://github.com/vlddev/ihavereadfx/raw/refs/heads/master/data/ihaveread.db",
+                DBHelper.DATABASE_NAME);
+        }
+    }
 }
 
 @Composable
@@ -68,6 +76,11 @@ fun MainCard(activity: MainActivity) {
             Button( onClick = {activity.openSearchActivity(SEARCH_TYPE_BY_TITLE)} )
             {
                 Text(text = "By Title", softWrap = false)
+            }
+            Spacer(modifier = Modifier.height(4.dp))
+            Button( onClick = {activity.downloadDb()} )
+            {
+                Text(text = "Download DB", softWrap = false)
             }
         }
     }
