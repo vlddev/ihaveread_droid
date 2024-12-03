@@ -49,6 +49,7 @@ class MainActivity : ComponentActivity() {
     }
 
     fun downloadDb() {
+        //TODO make path configurable
         AsyncTask.execute {
             DBCopier(this).copyDbFromUrl("https://github.com/vlddev/ihavereadfx/raw/refs/heads/master/data/ihaveread.db",
                 DBHelper.DATABASE_NAME);
